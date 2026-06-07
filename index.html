@@ -7,17 +7,7 @@
 </head>
 <body>
   <button onclick="
-    const randomNumber = Math.random();
-
-    let computerChoice = '';
-
-    if(randomNumber > 0 && randomNumber <= 1 /3) {
-      computerChoice = 'rock';
-    }else if (randomNumber > 1 /3 && randomNumber <= 2 /3){
-      computerChoice = 'paper';
-    }else if (randomNumber > 2 /3 && randomNumber <= 1){
-      computerChoice = 'scissors';
-    }
+    pickComputerChoice();
     
     let result = '';
     if (computerChoice === 'rock') {
@@ -32,17 +22,7 @@
     ">Rock
   </button>
   <button onclick="
-    const randomNumber = Math.random();
-
-    let computerChoice = '';
-
-    if(randomNumber > 0 && randomNumber <= 1 /3) {
-      computerChoice = 'rock';
-    }else if (randomNumber > 1 /3 && randomNumber <= 2 /3){
-      computerChoice = 'paper';
-    }else if (randomNumber > 2 /3 && randomNumber <= 1){
-      computerChoice = 'scissors';
-    }
+    pickComputerChoice();
     
     let result = '';
     if (computerChoice === 'rock') {
@@ -57,17 +37,7 @@
     ">Paper
   </button>
   <button onclick="
-    const randomNumber = Math.random();
-
-    let computerChoice = '';
-
-    if(randomNumber > 0 && randomNumber <= 1 /3) {
-      computerChoice = 'rock';
-    }else if (randomNumber > 1 /3 && randomNumber <= 2 /3){
-      computerChoice = 'paper';
-    }else if (randomNumber > 2 /3 && randomNumber <= 1){
-      computerChoice = 'scissors';
-    }
+    pickComputerChoice();
     
     let result = '';
     if (computerChoice === 'rock') {
@@ -83,6 +53,19 @@
   </button>
 
   <script>
+    let computerChoice = '';
+
+    function pickComputerChoice() {
+      const randomNumber = Math.random();
+
+      if(randomNumber > 0 && randomNumber <= 1 /3) {
+        computerChoice = 'rock';
+      }else if (randomNumber > 1 /3 && randomNumber <= 2 /3){
+        computerChoice = 'paper';
+      }else if (randomNumber > 2 /3 && randomNumber <= 1){
+        computerChoice = 'scissors';
+      }
+    }
 
   </script>
 </body>
