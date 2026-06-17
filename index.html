@@ -23,6 +23,10 @@
     ">Scissors
   </button>
 
+  <p class="js-result"></p>
+  <p class="js-choice"></p>
+  <p class="js-score"></p>
+
   <button onclick="
     score.wins = 0;
     score.losses = 0;
@@ -77,11 +81,17 @@
       }else if (result === 'Tie!') {
         score.ties += 1
       }
-       alert(`you chose ${playerChoice}, computer chose ${computerChoice}. ${result}
-wins: ${score.wins}, losses ${score.losses}, Ties: ${score.ties}`);
 
       localStorage.setItem('scores', JSON.stringify(score));
+
+      document.querySelector('.js-result')
+        .innerHTML = result;
+      document.querySelector('.js-choice')
+        .innerHTML = `you chose ${playerChoice}, computer chose ${computerChoice}.`;
+      document.querySelector('.js-score')
+        .innerHTML = `wins: ${score.wins}, losses ${score.losses}, Ties: ${score.ties}`
     }
+
     
 
     function pickComputerChoice() {
