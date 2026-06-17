@@ -26,19 +26,18 @@
   <button onclick="
     score.wins = 0;
     score.losses = 0;
-    score.ties = 0
+    score.ties = 0;
+    localStorage.clear('scores');
     ">Delete
   </button>
 
   <script>
 
-    const score = {
+    const score = JSON.parse(localStorage.getItem('scores')) || {
       wins: 0,
       losses: 0,
       ties: 0
-    }
-
-    JSON.parse(localStorage.getItem('scores'));
+    };
 
     function playGame(playerChoice)  {
       const computerChoice = pickComputerChoice();
