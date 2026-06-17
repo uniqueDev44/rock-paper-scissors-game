@@ -51,7 +51,10 @@
       document.querySelector('.js-result')
         .innerHTML = result;
       document.querySelector('.js-choice')
-        .innerHTML = `you chose ${playerChoice}, computer chose ${computerChoice}.`;
+        .innerHTML = `you 
+        <img src="images/${playerChoice}-emoji.png" alt="" class="move-icon"> .
+        computer 
+        <img src="images/${computerChoice}-emoji.png" alt="" class="move-icon">`;
 
       updateScore();
     }
