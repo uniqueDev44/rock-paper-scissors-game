@@ -7,20 +7,31 @@
 
     updateScore();
 
+    const resetScoreButton = document.querySelector('.js-reset-score-button');
+
+    resetScoreButton.addEventListener('click', () => {
+      score.wins = 0;
+      score.losses = 0;
+      score.ties = 0;
+      localStorage.clear('scores');
+      updateScore();
+    })
+
     let intervalId;
     let isAutoPlaying = false;
+
+    const autoPlayButton = document.querySelector('.js-autoplay-button');
+    autoPlayButton.addEventListener('click', () => {
+      autoPlay();
+    })
 
     function autoPlay() {
       const playerChoice = pickComputerChoice();
 
-      const autoPlayButton = document.querySelector('.js-autoplay-button');
-
-
-
       if (!isAutoPlaying && autoPlayButton.innerHTML !== 'Stop Playing') {
         intervalId = setInterval(() => {
           playGame(playerChoice)
-        },2000);
+        },1000);
         isAutoPlaying = true;
         autoPlayButton.innerHTML = 'Stop Playing'
       }else {
@@ -30,6 +41,21 @@
       }
       
     }
+
+    const rockButton = document.querySelector('.js-rock-button');
+    rockButton.addEventListener('click', () => {
+      playGame('rock');
+    })
+
+    const paperButton = document.querySelector('.js-paper-button');
+    paperButton.addEventListener('click', () => {
+      playGame('paper');
+    })
+
+    const scissorsButton = document.querySelector('.js-scissors-button');
+    scissorsButton.addEventListener('click', () => {
+      playGame('scissors');
+    })
 
     function playGame(playerChoice)  {
       const computerChoice = pickComputerChoice();
