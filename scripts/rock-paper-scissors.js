@@ -7,6 +7,30 @@
 
     updateScore();
 
+    let intervalId;
+    let isAutoPlaying = false;
+
+    function autoPlay() {
+      const playerChoice = pickComputerChoice();
+
+      const autoPlayButton = document.querySelector('.js-autoplay-button');
+
+
+
+      if (!isAutoPlaying && autoPlayButton.innerHTML !== 'Stop Playing') {
+        intervalId = setInterval(() => {
+          playGame(playerChoice)
+        },2000);
+        isAutoPlaying = true;
+        autoPlayButton.innerHTML = 'Stop Playing'
+      }else {
+        clearInterval(intervalId);
+        isAutoPlaying = false;
+        autoPlayButton.innerHTML = 'AutoPlay'
+      }
+      
+    }
+
     function playGame(playerChoice)  {
       const computerChoice = pickComputerChoice();
     
